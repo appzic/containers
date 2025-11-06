@@ -1,6 +1,9 @@
 name: Demo Workflow
 
 on:
+  push:
+    branches:
+      - ci/setup-github-actions
   pull_request:
     branches:
       - main
