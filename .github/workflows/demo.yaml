@@ -1,0 +1,13 @@
+name: Demo Workflow
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  demo_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        run: echo "Checking out repository..."
