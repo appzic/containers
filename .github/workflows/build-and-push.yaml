@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-24.04
     outputs:
       node: ${{ steps.changes.outputs.node }}
-      php+node: ${{ steps.changes.outputs.php+node }}
+      php+node: ${{ steps.changes.outputs.php-node }}
       python: ${{ steps.changes.outputs.python }}
       ubuntu: ${{ steps.changes.outputs.ubuntu }}
     steps:
@@ -37,7 +37,7 @@ jobs:
     needs: detect-changes
     if: |
       needs.detect-changes.outputs.node == 'true' ||
-      needs.detect-changes.outputs.php+node == 'true' ||
+      needs.detect-changes.outputs.php-node == 'true' ||
       needs.detect-changes.outputs.python == 'true' ||
       needs.detect-changes.outputs.ubuntu == 'true'
     runs-on: ubuntu-24.04
@@ -48,7 +48,7 @@ jobs:
           - image: node
             changed: ${{ needs.detect-changes.outputs.node }}
           - image: php+node
-            changed: ${{ needs.detect-changes.outputs.php+node }}
+            changed: ${{ needs.detect-changes.outputs.php-node }}
           - image: python
             changed: ${{ needs.detect-changes.outputs.python }}
           - image: ubuntu
